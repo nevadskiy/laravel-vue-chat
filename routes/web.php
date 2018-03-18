@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\MessagePosted;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +26,12 @@ Route::post('/messages', function() {
     
     $message = request()->get('message');
     
-    $user->messages()->create([
+    $message = $user->messages()->create([
          'message' => $message
     ]);
+    
+    //Announce about new messages
+    event(new MessagePosted($message, $user));
     
     return response(['status' => 'OK']);
     
