@@ -19,5 +19,5 @@ Vue.component('chat', require('./components/Chat.vue'));
 Vue.component('reply', require('./components/Reply.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });

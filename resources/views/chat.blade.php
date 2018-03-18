@@ -19,7 +19,6 @@
 
             <div class="offset-3 col-6">
                 <chat></chat>
-                <reply></reply>
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="message">
-    <h5 class="mb-0">{{ message.user }}</h5>
+    <h5 class="mb-0">{{ message.user.name }}</h5>
     <p>{{ message.text }}</p>
   </div>
 </template>
@@ -13,13 +13,6 @@
       message: {
         type: Object
       }
-    },
-
-//    data() {
-//      return {
-//        user: this.message.user,
-//        text: this.message.text
-//      }
-//    }
+    }
   }
 </script>
