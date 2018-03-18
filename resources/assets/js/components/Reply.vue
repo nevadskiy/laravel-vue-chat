@@ -18,8 +18,10 @@
     methods: {
       send() {
         this.$emit('sent', {
-          text: this.reply,
-          user: 'Vitalii'
+          message: this.reply,
+          user: {
+            name:  window.username
+          }
         });
         this.clear();
       },

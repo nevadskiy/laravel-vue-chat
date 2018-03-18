@@ -47285,13 +47285,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     add: function add(message) {
       this.messages.push(message);
+      axios.post('/messages', message);
     }
   },
 
   created: function created() {
     var _this = this;
 
-    console.log('here');
     axios.get('/messages').then(function (response) {
       _this.messages = response.data;
     });
@@ -47380,7 +47380,7 @@ var render = function() {
   return _c("div", { staticClass: "message" }, [
     _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.message.user.name))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.message.text))])
+    _c("p", [_vm._v(_vm._s(_vm.message.message))])
   ])
 }
 var staticRenderFns = []
@@ -47502,8 +47502,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     send: function send() {
       this.$emit('sent', {
-        text: this.reply,
-        user: 'Vitalii'
+        message: this.reply,
+        user: {
+          name: window.username
+        }
       });
       this.clear();
     },
